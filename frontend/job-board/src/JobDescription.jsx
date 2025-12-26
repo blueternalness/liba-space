@@ -217,11 +217,11 @@ const JobDescription = ({ onBack }) => {
 
         {/* Company Section */}
         <section>
-            <h3 className="text-xl font-bold text-gray-900 mb-6">Company</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-6">Similar Jobs</h3>
             <div className="flex items-start gap-5 mb-6">
                 <div className="w-16 h-16 bg-gray-100 rounded-xl flex-shrink-0 border border-gray-200"></div>
                 <div>
-                    <h4 className="text-lg font-bold text-gray-900">Company name</h4>
+                    <h4 className="text-lg font-bold text-gray-900">Kforce</h4>
                     <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-gray-500 mt-2">
                         <div className="flex items-center gap-2"><Calendar size={16}/> Founded in 1979</div>
                         <div className="flex items-center gap-2"><MapPin size={16}/> Carlsbad, California, US</div>
