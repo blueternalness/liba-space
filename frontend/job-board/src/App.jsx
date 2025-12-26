@@ -4,6 +4,7 @@ import {
   Menu, X, Heart, Share2, MapPin, DollarSign, 
   ChevronLeft, CheckCircle, Clock 
 } from 'lucide-react';
+import JobDescription from './JobDescription';
 
 // --- MOCK DATA ---
 const JOBS_DATA = [
@@ -51,7 +52,22 @@ const JOBS_DATA = [
     posted: "5 hours ago",
     applicants: 12,
     description: "Join our team to build scientific tools for the future..."
-  }
+  },
+  {
+    id: 4,
+    title: "UX Designer",
+    company: "Google",
+    location: "Ann Arbor, MI",
+    type: "Remote",
+    match: 93,
+    matchColor: "text-green-500",
+    ringColor: "border-green-500",
+    tags: ["Full time", "5+ years exp", "Mid Level"],
+    salary: "$90/hr - $130/hr",
+    posted: "3 days ago",
+    applicants: "100+",
+    description: "Collaborate and work closely with product management, engineering..."
+  },
 ];
 
 // --- COMPONENTS ---
@@ -383,7 +399,8 @@ const App = () => {
               </>
             ) : (
               // Detail View
-              <JobDetail job={selectedJob} onBack={() => setSelectedJob(null)} />
+              //<JobDetail job={selectedJob} onBack={() => setSelectedJob(null)} />
+              <JobDescription onBack={() => setSelectedJob(null)} />
             )}
           </div>
 
