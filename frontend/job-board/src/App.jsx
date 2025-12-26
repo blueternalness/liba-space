@@ -205,41 +205,109 @@ const JobCard = ({ job, onClick }) => (
 );
 
 // 3. Right Sidebar (Widgets)
+import { 
+  CheckSquare, AlertTriangle
+} from 'lucide-react';
+
+// Helper component for the Circular Progress Ring
+const ScoreRing = ({ label, percent, color = "text-purple-600" }) => {
+  const radius = 24;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (percent / 100) * circumference;
+
+  return (
+    <div className="flex flex-col items-center p-3 bg-white rounded-xl border border-purple-50 shadow-sm">
+      <div className="relative w-16 h-16 flex items-center justify-center mb-1">
+        {/* Background Circle */}
+        <svg className="transform -rotate-90 w-16 h-16">
+          <circle
+            cx="32"
+            cy="32"
+            r={radius}
+            stroke="currentColor"
+            strokeWidth="4"
+            fill="transparent"
+            className="text-gray-100"
+          />
+          {/* Progress Circle */}
+          <circle
+            cx="32"
+            cy="32"
+            r={radius}
+            stroke="currentColor"
+            strokeWidth="4"
+            fill="transparent"
+            strokeDasharray={circumference}
+            strokeDashoffset={strokeDashoffset}
+            strokeLinecap="round"
+            className={color}
+          />
+        </svg>
+        <span className="absolute text-sm font-bold text-gray-800">{percent}%</span>
+      </div>
+      <span className="text-xs font-semibold text-gray-600">{label}</span>
+    </div>
+  );
+};
+
 const RightPanel = ({ isDetail }) => {
+  // 1. DETAIL VIEW (The new design you requested)
   if (isDetail) {
     return (
-      <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-        <h3 className="font-bold text-gray-800 mb-4">Why is this job a good fit?</h3>
+      <div className="bg-gradient-to-b from-purple-50 to-white p-6 rounded-2xl shadow-sm border border-purple-100/50">
+        <h3 className="font-bold text-gray-900 text-lg mb-6">Why is this job a good fit for me?</h3>
         
-        {/* Animated Score Bars */}
-        {[{ label: 'Education', val: '95%' }, { label: 'Work Exp', val: '80%' }, { label: 'Skills', val: '90%' }].map((item, i) => (
-            <div key={i} className="mb-4">
-              <div className="flex justify-between text-xs mb-1 font-semibold text-gray-600">
-                <span>{item.label}</span>
-                <span>{item.val}</span>
-              </div>
-              <div className="w-full bg-gray-100 rounded-full h-2">
-                <div 
-                  className="bg-purple-600 h-2 rounded-full transition-all duration-1000 ease-out" 
-                  style={{ width: item.val }}
-                ></div>
-              </div>
+        {/* The 4 Grid Rings */}
+        <div className="grid grid-cols-2 gap-3 mb-8">
+          <ScoreRing label="Education" percent={93} color="text-purple-600" />
+          <ScoreRing label="Work Exp" percent={80} color="text-purple-600" />
+          <ScoreRing label="Skills" percent={93} color="text-purple-600" />
+          <ScoreRing label="Exp. Level" percent={44} color="text-purple-400" />
+        </div>
+        
+        {/* Analysis Sections */}
+        <div className="space-y-6">
+          
+          {/* Relevant Experience */}
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+               <h4 className="font-bold text-gray-900 text-sm">Relevant Experience</h4>
+               <CheckSquare size={16} className="text-green-500 fill-green-500 text-white" /> 
+               {/* Note: Icon style tweaked to look like filled box */}
             </div>
-        ))}
-        
-        <div className="mt-6 p-4 bg-purple-50 rounded-xl">
-           <div className="flex items-center gap-2 mb-2">
-             <CheckCircle size={16} className="text-green-500" />
-             <span className="text-sm font-bold text-gray-800">Relevant Experience</span>
-           </div>
-           <p className="text-xs text-gray-600 leading-relaxed">
-             You have substantial experience as a UX designer, aligning well with the seniority requirements.
-           </p>
+            <p className="text-xs leading-relaxed text-gray-600">
+              You have substantial experience as a UI/UX Designer, Interaction Designer, and User Research Specialist. Your role at Sohu aligns with designing interaction elements relevant to user experience design for digital products.
+            </p>
+          </div>
+
+          {/* Seniority */}
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+               <h4 className="font-bold text-gray-900 text-sm">Seniority</h4>
+               <CheckSquare size={16} className="text-green-500 fill-green-500 text-white" />
+            </div>
+            <p className="text-xs leading-relaxed text-gray-600">
+              You have amassed over eight years of relevant experience, meeting the mid-level seniority requirement for the role.
+            </p>
+          </div>
+
+          {/* Education */}
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+               <h4 className="font-bold text-gray-900 text-sm">Education</h4>
+               <AlertTriangle size={16} className="text-yellow-500 fill-yellow-100" />
+            </div>
+            <p className="text-xs leading-relaxed text-gray-600">
+              While you hold a Master's degree from Politecnico di Milano in Digital and Interaction Design, it doesn't strictly align with the specified fields of Computer Science, Computer Engineering, or Information Science and Technology required by the job.
+            </p>
+          </div>
+
         </div>
       </div>
-    )
+    );
   }
 
+  // 2. LIST VIEW (Keep existing promo widget)
   return (
     <div className="bg-gradient-to-b from-white to-purple-50 p-6 rounded-2xl shadow-sm border border-gray-100">
       <div className="mb-4 text-purple-600">

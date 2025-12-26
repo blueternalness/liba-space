@@ -31,7 +31,7 @@ const JobDescription = ({ onBack }) => {
         <div className="flex-1">
            {/* Top Tag */}
           <span className="inline-block bg-purple-100 text-purple-700 text-xs font-bold px-2 py-1 rounded-md mb-3">
-            2 hours ago
+            3 days ago
           </span>
           
           <div className="flex items-start gap-4">
@@ -78,7 +78,9 @@ const JobDescription = ({ onBack }) => {
 
       {/* Intro Text */}
       <p className="text-gray-600 leading-relaxed mb-8">
-        Job description Job description Job description Job description Job description Job description Job description Job description Job description Job description Job description Job description Job description Job description Job description Job description
+        Google User Experience (UX) is made up of multi-disciplinary teams of UX Designers, Researchers, Writers, Content Strategists, Program Managers, and Engineers: we care deeply about the people who use our products. The UX team plays an integral part in gathering insights about the attitudes, emotions, and behaviors of people who use our products to inspire and inform design. We collaborate closely with each other and with engineering and product management to create industry-leading products that deliver value for the people who use them, and for Google’s businesses. 
+        
+        As an Interaction Designer, you’ll rely on user-centered design methods to craft industry-leading user experiences—from concept to execution. Like all of our UX jobs, you’ll collaborate with your design partners to leverage and evolve the Google design language to build beautiful, innovative, inspired products that people love to use.
       </p>
 
       {/* --- PROMO BANNER --- */}
