@@ -11,8 +11,9 @@ import '@livekit/components-styles';
 import { DigitalHumanView } from './DigitalHumanView';
 
 // Configuration (Replace with your actual keys/token)
-const LIVEKIT_URL = "wss://your-project.livekit.cloud";
-const TOKEN = "YOUR_GENERATED_TOKEN";
+const LIVEKIT_URL = "wss://liba-space-nvph2p15.livekit.cloud";
+const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NjY3OTYxODgsImlkZW50aXR5IjoidXNlcjEiLCJpc3MiOiJBUElmQmpBa1V3cm93a3IiLCJuYW1lIjoidXNlcjEiLCJuYmYiOjE3NjY3OTU4ODgsInN1YiI6InVzZXIxIiwidmlkZW8iOnsicm9vbSI6Im15LXRlc3Qtcm9vbSIsInJvb21Kb2luIjp0cnVlfX0.dTi_V1YCaDxPTpj1cCBoYI1C9rfAiVXIfmMLYbnNvUI";
+
 
 export default function App() {
   return (
